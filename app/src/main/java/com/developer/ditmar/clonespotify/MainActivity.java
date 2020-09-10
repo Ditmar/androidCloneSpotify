@@ -8,8 +8,20 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.developer.ditmar.clonespotify.utils.EndPoints;
+import com.developer.ditmar.clonespotify.utils.UserDataServer;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
     Button loginButton, registerButton;
@@ -20,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
+        getSupportActionBar().hide();
         loadComponents();
     }
 
@@ -36,6 +49,43 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //ENVIO A LA API
+                AsyncHttpClient client = new AsyncHttpClient();
+
+                EditText email = root.findViewById(R.id.email_txt);
+                EditText password = root.findViewById(R.id.password_txt);
+
+
+                RequestParams params = new RequestParams();
+                params.add("nick", email.getText().toString());
+                params.add("password", password.getText().toString());
+
+                client.post(EndPoints.LOGIN_SERVICE, params, new JsonHttpResponseHandler(){
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        try {
+                            if (response.has("msn")) {
+                                UserDataServer.MSN = response.getString("msn");
+                            }
+                            if (response.has("token")) {
+                                UserDataServer.TOKEN = response.getString("token");
+                            }
+                            if (UserDataServer.TOKEN.length() > 150) {
+                                Intent intent = new Intent(root, MainDashBoardActivity.class);
+                                root.startActivity(intent);
+                            } else {
+                                Toast.makeText(root, response.getString("msn"), Toast.LENGTH_LONG).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+
+                /*Intent intent = new Intent(root, MainDashBoardActivity.class);
+                root.startActivity(intent);*/
                 /*Intent intent = new Intent(root, RegisterUser.class);
                 intent.putExtra("backupAgentName", root.getApplicationInfo().backupAgentName);
                 intent.putExtra("data", "soy la informacion de la actividad MainActivity");
