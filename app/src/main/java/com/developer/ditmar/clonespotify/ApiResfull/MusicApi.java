@@ -30,5 +30,16 @@ public class MusicApi {
 
         });
     }
+    public void searchMusic (String searchkey) {
+        client.addHeader("authorization", UserDataServer.TOKEN);
+        client.get(EndPoints.LISTMP3_SEARCH + "title=" + searchkey, new JsonHttpResponseHandler(){
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                interfaceevent.onJsonArrayLoad(response);
+            }
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                interfaceevent.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
+    }
 
 }
