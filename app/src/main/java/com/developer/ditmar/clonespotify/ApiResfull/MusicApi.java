@@ -42,4 +42,16 @@ public class MusicApi {
         });
     }
 
+    public void loadPlayList (String nick) {
+        client.addHeader("authorization", UserDataServer.TOKEN);
+        client.get(EndPoints.LIST_PLAY_LIST + nick, new JsonHttpResponseHandler(){
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                interfaceevent.onJsonArrayLoad(response);
+            }
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                interfaceevent.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
+    }
+
 }

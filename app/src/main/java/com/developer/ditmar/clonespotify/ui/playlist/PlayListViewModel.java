@@ -1,14 +1,14 @@
-package com.developer.ditmar.clonespotify.ui.notifications;
+package com.developer.ditmar.clonespotify.ui.playlist;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class PlayListViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public PlayListViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }
