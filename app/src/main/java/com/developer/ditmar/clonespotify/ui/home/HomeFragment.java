@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -52,6 +53,12 @@ public class HomeFragment extends Fragment implements onLoadData {
     public void onStart() {
         super.onStart();
         list = this.getActivity().findViewById(R.id.musica_list);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
         ArrayList<StructListMp3> datos = new ArrayList<>();
         MusicApi api = new MusicApi(this);
         api.loadMusic();

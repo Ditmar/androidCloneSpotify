@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "827783099561",
+    "firebase_url": "https://loginandroid-78046.firebaseio.com",
+    "project_id": "loginandroid-78046",
+    "storage_bucket": "loginandroid-78046.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827783099561:android:d712a22f21f12eac19a5b8",
+        "android_client_info": {
+          "package_name": "com.developer.ditmar.clonespotify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827783099561-rh9315pqec1kplrg2mcdt4o2l7uf1nkm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.ditmar.clonespotify",
+            "certificate_hash": "8c23c732fe9210d0bf1cd4964c2c913e0ece8404"
+          }
+        },
+        {
+          "client_id": "827783099561-sgvr0geh7d84tmtsqcf4251q1a736cf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoejou1tjFhxLfo8QnQhHIEzbF43Lkyro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827783099561-sgvr0geh7d84tmtsqcf4251q1a736cf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827783099561:android:dafed750f748b99e19a5b8",
+        "android_client_info": {
+          "package_name": "com.developer.ditmar.loginandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827783099561-6ccuebumkv0ouunt4eldb2cgkuami5bg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.ditmar.loginandroid",
+            "certificate_hash": "8c23c732fe9210d0bf1cd4964c2c913e0ece8404"
+          }
+        },
+        {
+          "client_id": "827783099561-sgvr0geh7d84tmtsqcf4251q1a736cf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoejou1tjFhxLfo8QnQhHIEzbF43Lkyro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827783099561-sgvr0geh7d84tmtsqcf4251q1a736cf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
